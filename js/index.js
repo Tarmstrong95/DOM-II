@@ -1,6 +1,6 @@
 // Your code goes here
 let nav = document.querySelector('.nav') // Hover nav to change color
-nav.addEventListener( "mouseover", y => {y.target.style.color = "red"; preventDefault(); y.stopPropagation()})
+nav.addEventListener( "mouseover", y => {y.target.style.color = "red"; preventDefault()})
 
 
 let img = document.querySelector('body') // Tap A to change opacity
@@ -45,4 +45,15 @@ window.addEventListener("scroll", x => { //Changes background color on scroll
 let body =  document.querySelector('img') // makes first image invisible
 body.addEventListener('dblclick', x => {
     x.target.style.opacity = "0"
+})
+
+
+// Added proper stopPropogation
+document.querySelector('body').addEventListener('click', () => console.log("Just a click"))
+const imgs = document.querySelectorAll('img');
+imgs.forEach(x => {
+    x.addEventListener('click', () => {
+        event.stopPropagation();
+        x.style.border = "8px solid green"
+    })
 })
